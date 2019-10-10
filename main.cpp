@@ -4,17 +4,16 @@
 #include <opencv2/imgproc.hpp>
 
 void onMouse(int event, int x, int y, int flags, void *param) {
-    auto *im = reinterpret_cast<cv::Mat *>(param);
+    cv::Mat *im = reinterpret_cast<cv::Mat*>(param);
 
     switch (event) {
         case cv::EVENT_LBUTTONDOWN:
             std::cout << "at (" << x << "," << y << ") value is: "
                       << static_cast<int>(im->at<uchar>(cv::Point(x, y)))
                       << std::endl;
-            break;
-    }
+            break; }
 }
-int main() {
+auto main() -> int {
     cv::Mat image;
     std::cout << "This image is " << image.rows << "x " << image.cols
               << std::endl;
@@ -32,9 +31,9 @@ int main() {
               << std::endl;
 
     cv::namedWindow("original Image");
-    cv::imshow("Original image", image);
+    cv::imshow("original image", image);
 
-    cv::setMouseCallback("Original Image", onMouse,
+    cv::setMouseCallback("original Image", onMouse,
                          reinterpret_cast<void *>(&image));
 
     cv::Mat result;
@@ -44,8 +43,7 @@ int main() {
     cv::waitKey(0);
 
     cv::namedWindow("Drawing on an image");
-    cv::circle(image, cv::Point(155, 110), 65, 0 ,3);
+    cv::circle(image, cv::Point(155, 110), 65, 0, 3);
     cv::imshow("Drawing on an Image", image);
     cv::waitKey(0);
-    return 0;
 }
