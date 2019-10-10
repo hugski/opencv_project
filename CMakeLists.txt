@@ -15,7 +15,8 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 link_directories(${OpenCV_LIB_DIR})
 
-SET(SRC main.cpp)
+# SET(SRC main.cpp )
+set(SRC calibrate.cpp CameraCalibrator.cpp)
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRC})
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${OpenCV_LIBS}) 
 

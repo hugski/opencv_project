@@ -10,8 +10,8 @@
 #include <opencv2/imgproc.hpp>
 
 class CameraCalibrator {
-    std::vector<std::vector<cv::Point3f> > objectPoints;
-    std::vector<std::vector<cv::Point2f> > imagePoints;
+    std::vector<std::vector<cv::Point3f>> objectPoints;
+    std::vector<std::vector<cv::Point2f>> imagePoints;
     cv::Mat cameraMatrix;
     cv::Mat distCoeffs;
     //标志opencv 矫正的方式
